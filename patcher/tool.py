@@ -27,19 +27,9 @@ _logger: Logger = get_logger(__name__)
 
 def repack() -> None:
     """whole patching process."""
-    _call_repack()
 
+    steam.copy_data_in_steam_game_folder(
+        config.STEAM_FOLDER,
+        config.PATCH_FOLDER
+    )
 
-def _call_repack() -> None:
-
-    command: list[str] = [
-        "tool.exe",
-        "file.txt"
-    ]
-
-    subprocess.run(
-        command,
-        shell=True,
-        check=False,
-        cwd=config.TOOL_FOLDER
-        )
