@@ -8,15 +8,11 @@ Description : call tool to repack the game.
 # == Imports ==================================================================
 
 from logging import Logger
-import subprocess
 
 # -------------------- Import Lib User -------------------
-
 from patcher import config
-from patcher.utils import xdelta
 from patcher.utils import steam
 from patcher.utils.logger import get_logger
-
 
 # == Global Variables =========================================================
 
@@ -25,11 +21,7 @@ _logger: Logger = get_logger(__name__)
 
 # == Functions ================================================================
 
+
 def repack() -> None:
     """whole patching process."""
-
-    steam.copy_data_in_steam_game_folder(
-        config.STEAM_FOLDER,
-        config.PATCH_FOLDER
-    )
-
+    steam.copy_data_in_steam_game_folder(config.STEAM_FOLDER, config.PATCH_FOLDER)
